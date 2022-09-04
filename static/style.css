@@ -1,0 +1,132 @@
+button{
+    float: right;
+    color: #fff;
+    background-color: #5162ef;
+    border-width: 0;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+button:hover{
+    float: right;
+    color: #fff;
+    background-color: #5e6df5;
+    border-width: 0;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.top{
+    display: block;
+    margin: auto;
+    width: 960px;
+}
+.top h1{
+    display: inline-block;
+}
+.top a{
+    margin: 20px;
+}
+.canvas{
+    display: block;
+    margin: auto;
+    width: 960px;
+    overflow: hidden;
+}
+.canvas-left{
+    float: left;
+    width: 480px;
+}
+.edit-block {
+    background-color: #eee;
+    width: 420px;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+.edit-block input{
+    width: 400px;
+    margin-bottom: 6px;
+}
+.edit-block textarea{
+    resize: vertical;
+    width: 400px;
+    height: 3rem;
+}
+.edit-block button{
+    float: right;
+    margin-left: 10px;
+}
+.remove-button {
+    padding: 3px 10px;
+    background-color: #dc143c;
+}
+.remove-button:hover {
+    padding: 3px 10px;
+    background-color: #e1355c;
+}
+.add-input{
+    width: 300px;
+}
+.add-button{
+    float: none;
+    margin-left: 10px;
+    background-color: #42d339;
+}
+.add-button:hover{
+    float: none;
+    margin-left: 10px;
+    background-color: #3bd72e;
+}
+.canvas-right{
+    float: right;
+    width: 480px;
+}
+.canvas-right button{
+    margin: 25px;
+}
+.preview-preview{
+    float: left;
+    width: 240px;
+}
+.preview{
+    background: #36393F;
+    color: #DCDDDE;
+    clear: both;
+    overflow: hidden;
+}
+.preview-avatar{
+    float: left;
+    width: 80px;
+}
+.preview-avatar img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+}
+.preview-text{
+    float: right;
+    width: 380px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+.preview-header{
+    margin-bottom: 0;
+}
+.preview-header-name{
+    color: #FFF;
+}
+.preview-header-time{
+    color: #b9bbbe;
+    font-size: 0.75rem;
+}
+.preview-content{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    overflow-wrap: break-word;
+}
+.preview-content span{
+    display: block;
+}
+.preview-content a{
+    color: #00aff4;
+}

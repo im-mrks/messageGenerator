@@ -1,13 +1,145 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>退勤メッセージジェネレーター</title>
+    <meta charset="UTF-8">
+    <title>退勤メッセージジェネレーター</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
 </head>
 <body>
+
 <div class="top">
-  <h1>退勤メッセージジェネレーター</h1>
-  <a href="syukkin.html">出勤はこちら</a>
+    <h1>退勤メッセージジェネレーター</h1>
+    <a href="syukkin.html">出勤はこちら</a>
 </div>
+
+<div class="canvas">
+
+    <!-- 左側 -->
+
+    <div class="canvas-left">
+        <h2>編集</h2>
+
+        <!-- Djangoで初期生成されるブロック -->
+
+
+        <p class="edit-block" id="work_time">
+            <label>
+                <b>勤務時間</b><br>
+
+                <input type="text" value="9:00-14:00">
+                <br>
+                <button type="button" tabindex="-1" class="remove-button" onclick="removeBlock(this)">削除</button>
+                <button type="button" tabindex="-1" onclick="moveLower(this)">↓</button>
+                <button type="button" tabindex="-1" onclick="moveUpper(this)">↑</button>
+                <br><span style="clear: both"></span>
+            </label>
+        </p>
+
+        <p class="edit-block" id="done_today">
+            <label>
+                <b>行ったこと</b><br>
+
+                <textarea>・</textarea>
+                <br>
+                <button type="button" tabindex="-1" class="remove-button" onclick="removeBlock(this)">削除</button>
+                <button type="button" tabindex="-1" onclick="moveLower(this)">↓</button>
+                <button type="button" tabindex="-1" onclick="moveUpper(this)">↑</button>
+                <br><span style="clear: both"></span>
+            </label>
+        </p>
+
+        <p class="edit-block" id="log">
+            <label>
+                <b>作業ログ</b><br>
+
+                <textarea></textarea>
+                <br>
+                <button type="button" tabindex="-1" class="remove-button" onclick="removeBlock(this)">削除</button>
+                <button type="button" tabindex="-1" onclick="moveLower(this)">↓</button>
+                <button type="button" tabindex="-1" onclick="moveUpper(this)">↑</button>
+                <br><span style="clear: both"></span>
+            </label>
+        </p>
+
+        <p class="edit-block" id="thoughts">
+            <label>
+                <b>今日のひとこと</b><br>
+
+                <textarea></textarea>
+                <br>
+                <button type="button" tabindex="-1" class="remove-button" onclick="removeBlock(this)">削除</button>
+                <button type="button" tabindex="-1" onclick="moveLower(this)">↓</button>
+                <button type="button" tabindex="-1" onclick="moveUpper(this)">↑</button>
+                <br><span style="clear: both"></span>
+            </label>
+        </p>
+
+
+        <!-- ブロック新規作成用のテンプレート -->
+
+        <p class="edit-block" style="display: none">
+            <label>
+                <b>コピー用</b><br>
+                <textarea></textarea><br>
+                <button tabindex="-1" type="button" class="remove-button" onclick="removeBlock(this)">削除</button>
+                <button tabindex="-1" type="button" onclick="moveLower(this)">↓</button>
+                <button tabindex="-1" type="button" onclick="moveUpper(this)">↑</button>
+                <br><span style="clear: both"></span>
+            </label>
+        </p>
+
+        <!-- ブロック追加 -->
+
+        <p class="add-block">
+            <label>
+                <b>タイトル</b>
+                <input tabindex="-1" type="text" class="add-input" id="add-input">
+            </label>
+            <button tabindex="-1" type="button" class="add-button" onclick="addBlock(this)">追加</button>
+        </p>
+    </div>
+
+    <!-- 右側 -->
+
+    <div class="canvas-right">
+        <h2 class="preview-preview">プレビュー</h2>
+        <button type="button" onclick="copyToClipboard()">コピー</button>
+
+        <div class="preview">
+            <div class="preview-avatar">
+                <img src="static/avatar.png" alt="sample">
+            </div>
+
+            <div class="preview-text">
+                <p class="preview-header">
+                    <span class="preview-header-name">あなた</span>
+                    <span class="preview-header-time" id="preview-header-time">今日 16:03</span>
+                </p>
+
+                <p class="preview-content" id="preview">
+                    <span id="preview-content-top">退勤します。</span>
+
+                    <span id="preview-header-work_time">＜勤務時間＞</span>
+                    <span id="preview-content-work_time">9:00-14:00</span>
+
+                    <span id="preview-header-done_today">＜行ったこと＞</span>
+                    <span id="preview-content-done_today">・</span>
+
+                    <span id="preview-header-log">＜作業ログ＞</span>
+                    <span id="preview-content-log"></span>
+
+                    <span id="preview-header-thoughts">＜今日のひとこと＞</span>
+                    <span id="preview-content-thoughts"></span>
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="static/setHyperlink.js"></script>
+<script type="text/javascript" src="static/copyToClipboard.js"></script>
+<script type="text/javascript" src="static/taikin.js"></script>
+
 </body>
 </html>
