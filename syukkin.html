@@ -19,42 +19,38 @@
 
     <div class="canvas-left">
         <h2>編集</h2>
-        <p class="edit-block" id="edit-top">
-            <label>
-                <b>勤務時間</b><br>
-                <input type="text" value="9:00-14:00">
-            </label>
-        </p>
-        <p class="edit-block" id="edit-mdl">
-            <label>
-                <b>作業予定</b><br>
-                <textarea>・</textarea>
-            </label>
-        </p>
+        <div class="edit-block" id="edit-top">
+            <label>勤務時間</label>
+            <input class="edit-input" data-preview-id="preview-content-top" type="text" value="9:00-14:00">
+        </div>
+        <div class="edit-block" id="edit-mdl">
+            <label>作業予定</label>
+            <textarea class="edit-input" data-preview-id="preview-content-mdl">・</textarea>
+        </div>
     </div>
 
     <!-- 右側 -->
 
     <div class="canvas-right">
-        <h2 class="preview-preview">プレビュー</h2>
-        <button type="button" onclick="copyToClipboard()">コピー</button>
+        <div class="preview-title">
+            <h2 class="preview-preview">プレビュー</h2>
+            <button class="preview-copy" type="button" onclick="copyToClipboard()">コピー</button>
+        </div>
 
         <div class="preview">
-            <div class="preview-avatar">
-                <img src="static/avatar.png" alt="sample">
-            </div>
+            <img class="preview-avatar" src="static/avatar.png" alt="sample">
 
             <div class="preview-text">
-                <p class="preview-header">
+                <div class="preview-header">
                     <span class="preview-header-name">あなた</span>
                     <span class="preview-header-time" id="preview-header-time"></span>
-                </p>
+                </div>
 
-                <p class="preview-content" id="preview">
-                    <span id="preview-content-top">出勤します。9:00-14:00</span>
+                <div class="preview-content" id="preview">
+                    <span>出勤します。<span id="preview-content-top" class="preview-content-inline">9:00-14:00</span></span>
                     <span id="preview-content-mdl">・</span>
                     <span id="preview-content-btm">を進めていきます。よろしくお願いします。</span>
-                </p>
+                </div>
             </div>
         </div>
     </div>
@@ -62,7 +58,7 @@
 
 <script type="text/javascript" src="static/setHyperlink.js"></script>
 <script type="text/javascript" src="static/copyToClipboard.js"></script>
-<script type="text/javascript" src="static/syukkin.js"></script>
+<script type="text/javascript" src="static/general.js"></script>
 
 </body>
 </html>

@@ -1,132 +1,183 @@
-button{
-    float: right;
+body {
+    font-family: Whitney,"Hiragino Sans","ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,Osaka,"MS PGothic","Helvetica Neue",Helvetica,Arial,sans-serif;;
+}
+
+button {
     color: #fff;
     background-color: #5162ef;
     border-width: 0;
-    border-radius: 5px;
-    padding: 5px 10px;
+    border-radius: .4rem;
+    padding: .4rem .8rem;
 }
-button:hover{
-    float: right;
+
+button:hover {
     color: #fff;
     background-color: #5e6df5;
     border-width: 0;
-    border-radius: 5px;
-    padding: 5px 10px;
+    border-radius: .4rem;
+    padding: .4rem .8rem;
 }
 
-.top{
-    display: block;
+.top {
+    display: flex;
+    align-items: center;
     margin: auto;
     width: 960px;
 }
-.top h1{
+
+.top h1 {
     display: inline-block;
 }
-.top a{
-    margin: 20px;
+
+.top a {
+    margin-left: 2rem;
 }
-.canvas{
-    display: block;
+
+.canvas {
+    display: flex;
+    justify-content: space-between;
     margin: auto;
     width: 960px;
-    overflow: hidden;
 }
-.canvas-left{
-    float: left;
-    width: 480px;
+
+.canvas-left {
+    width: 460px;
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
 }
+
+.canvas-left label {
+    font-weight: bold;
+}
+
 .edit-block {
+    display: flex;
+    flex-direction: column;
     background-color: #eee;
-    width: 420px;
-    padding: 10px 20px;
-    border-radius: 20px;
+    margin-bottom: 1rem;
+    padding: .65rem 1.3rem;
+    border-radius: 1.3rem;
 }
-.edit-block input{
-    width: 400px;
-    margin-bottom: 6px;
+
+.edit-block input {
+    width: 100%;
+    margin-top: .1rem;
+    margin-bottom: .5rem;
+    box-sizing: border-box;
 }
-.edit-block textarea{
+
+.edit-block textarea {
     resize: vertical;
-    width: 400px;
+    width: 100%;
+    box-sizing: border-box;
     height: 3rem;
+    margin-top: .1rem;
+    margin-bottom: .5rem;
 }
-.edit-block button{
-    float: right;
-    margin-left: 10px;
+
+.edit-buttons {
+    display: flex;
+    justify-content: flex-end;
 }
+
+.edit-buttons button {
+    margin-left: .5rem;
+    padding: .2rem .6rem;
+}
+
 .remove-button {
-    padding: 3px 10px;
     background-color: #dc143c;
 }
+
 .remove-button:hover {
-    padding: 3px 10px;
     background-color: #e1355c;
 }
-.add-input{
-    width: 300px;
+
+.add-block {
+    display: flex;
+    align-items: center;
 }
-.add-button{
-    float: none;
-    margin-left: 10px;
+
+.add-input {
+    flex-grow: 1;
+    margin-left: .8rem;
+}
+
+.add-button {
+    margin-left: .8rem;
+    margin-right: .8rem;
+    padding: .3rem .6rem;
     background-color: #42d339;
 }
-.add-button:hover{
-    float: none;
-    margin-left: 10px;
+
+.add-button:hover {
+    margin-left: .8rem;
+    margin-right: .8rem;
+    padding: .3rem .6rem;
     background-color: #3bd72e;
 }
-.canvas-right{
-    float: right;
+
+.canvas-right {
     width: 480px;
 }
-.canvas-right button{
-    margin: 25px;
+
+.preview-title {
+    display: flex;
+    align-items: center;
 }
-.preview-preview{
-    float: left;
-    width: 240px;
+
+.preview-preview {
+    margin-right: auto;
 }
-.preview{
+
+.preview-copy {
+    margin-right: 1rem;
+}
+
+.preview {
+    display: flex;
+    padding: 1rem;
     background: #36393F;
-    color: #DCDDDE;
-    clear: both;
-    overflow: hidden;
 }
-.preview-avatar{
-    float: left;
-    width: 80px;
-}
-.preview-avatar img{
+
+.preview-avatar {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    margin: 20px;
 }
-.preview-text{
-    float: right;
-    width: 380px;
-    margin-right: 20px;
-    margin-bottom: 10px;
+
+.preview-text {
+    margin-left: 1rem;
 }
-.preview-header{
-    margin-bottom: 0;
+
+.preview-header {
+    margin-bottom: .3rem;
 }
-.preview-header-name{
+
+.preview-header-name {
     color: #FFF;
+    margin-right: .25rem;
 }
-.preview-header-time{
+
+.preview-header-time {
     color: #b9bbbe;
-    font-size: 0.75rem;
+    font-size: .75rem;
 }
-.preview-content{
-    margin-top: 5px;
-    margin-bottom: 10px;
-    overflow-wrap: break-word;
+
+.preview-content {
+    color: #DCDDDE;
+    overflow-wrap: anywhere;
 }
-.preview-content span{
+
+.preview-content-inline {
+    display: inline!important;
+}
+
+.preview-content span {
     display: block;
 }
-.preview-content a{
+
+.preview-content a {
     color: #00aff4;
 }

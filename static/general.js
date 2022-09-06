@@ -1,4 +1,12 @@
 'use strict';
+
+// プレビュー自動更新用イベントリスナー
+function autoPreview(event) {
+    const preview = document.getElementById(event.currentTarget.dataset.previewId);
+    preview.innerText = event.currentTarget.value;
+    preview.innerHTML = setHyperlink(preview.innerHTML);
+}
+
 // ブロックを上にずらす
 function moveUpper(obj) {
     // ブロック位置変更
@@ -18,6 +26,7 @@ function moveUpper(obj) {
     upperHeader.parentElement.insertBefore(previewHeader, upperHeader);
     upperHeader.parentElement.insertBefore(previewContent, upperHeader);
 }
+
 // ブロックを下にずらす
 function moveLower(obj) {
     // ブロック位置変更
@@ -37,6 +46,7 @@ function moveLower(obj) {
     lowerContent.parentElement.insertBefore(lowerHeader, previewHeader);
     lowerContent.parentElement.insertBefore(lowerContent, previewHeader);
 }
+
 // ブロックを削除
 function removeBlock(obj) {
     // ブロック削除
@@ -50,8 +60,9 @@ function removeBlock(obj) {
     previewHeader.remove();
     previewContent.remove();
 }
-// ブロックを追加
+
 let newBlockCount = 0;
+// ブロックを追加
 function addBlock(obj) {
     // タイトル取得
     const titleInput = document.getElementById('add-input');
@@ -70,12 +81,9 @@ function addBlock(obj) {
     const clonedBlock = hiddenBlock.cloneNode(true);
     clonedBlock.style['display'] = '';
     clonedBlock.id = newID;
-    clonedBlock.querySelector('b').innerText = title;
-    clonedBlock.querySelector('textarea').addEventListener('input', (event) => {
-        const preview = document.getElementById('preview-content-' + newID);
-        preview.innerText = event.currentTarget.value;
-        preview.innerHTML = setHyperlink(preview.innerHTML);
-    });
+    clonedBlock.querySelector('label').innerText = title;
+    clonedBlock.querySelector('.edit-input').dataset.previewId = 'preview-content-' + newID;
+    clonedBlock.querySelector('.edit-input').addEventListener('input', autoPreview)
     hiddenBlock.parentElement.insertBefore(clonedBlock, hiddenBlock);
 
     // プレビュー追加
@@ -96,40 +104,6 @@ const nowMin  = String(nowTime.getMinutes()).padStart(2, '0');
 document.getElementById("preview-header-time").innerHTML = "今日 " + nowHour + ":" + nowMin;
 
 // プレビュー設定
-let inputField;
-
-
-inputField = document.getElementById('work_time').querySelector('input');
-
-inputField.addEventListener('input', (event) => {
-    const preview = document.getElementById('preview-content-work_time');
-    preview.innerText = event.currentTarget.value;
-    preview.innerHTML = setHyperlink(preview.innerHTML);
-});
-
-
-inputField = document.getElementById('done_today').querySelector('textarea');
-
-inputField.addEventListener('input', (event) => {
-    const preview = document.getElementById('preview-content-done_today');
-    preview.innerText = event.currentTarget.value;
-    preview.innerHTML = setHyperlink(preview.innerHTML);
-});
-
-
-inputField = document.getElementById('log').querySelector('textarea');
-
-inputField.addEventListener('input', (event) => {
-    const preview = document.getElementById('preview-content-log');
-    preview.innerText = event.currentTarget.value;
-    preview.innerHTML = setHyperlink(preview.innerHTML);
-});
-
-
-inputField = document.getElementById('thoughts').querySelector('textarea');
-
-inputField.addEventListener('input', (event) => {
-    const preview = document.getElementById('preview-content-thoughts');
-    preview.innerText = event.currentTarget.value;
-    preview.innerHTML = setHyperlink(preview.innerHTML);
-});
+for (const inputField of document.querySelectorAll('.edit-input')) {
+    inputField.addEventListener('input', autoPreview);
+}

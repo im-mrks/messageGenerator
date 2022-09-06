@@ -23,101 +23,86 @@
         <!-- Djangoで初期生成されるブロック -->
 
 
-        <p class="edit-block" id="work_time">
-            <label>
-                <b>勤務時間</b><br>
-
-                <input type="text" value="9:00-14:00">
-                <br>
-                <button type="button" tabindex="-1" class="remove-button" onclick="removeBlock(this)">削除</button>
-                <button type="button" tabindex="-1" onclick="moveLower(this)">↓</button>
+        <div class="edit-block" id="work_time">
+            <label>勤務時間</label>
+            <input class="edit-input" data-preview-id="preview-content-work_time" type="text" value="9:00-14:00">
+            <div class="edit-buttons">
                 <button type="button" tabindex="-1" onclick="moveUpper(this)">↑</button>
-                <br><span style="clear: both"></span>
-            </label>
-        </p>
-
-        <p class="edit-block" id="done_today">
-            <label>
-                <b>行ったこと</b><br>
-
-                <textarea>・</textarea>
-                <br>
-                <button type="button" tabindex="-1" class="remove-button" onclick="removeBlock(this)">削除</button>
                 <button type="button" tabindex="-1" onclick="moveLower(this)">↓</button>
-                <button type="button" tabindex="-1" onclick="moveUpper(this)">↑</button>
-                <br><span style="clear: both"></span>
-            </label>
-        </p>
-
-        <p class="edit-block" id="log">
-            <label>
-                <b>作業ログ</b><br>
-
-                <textarea></textarea>
-                <br>
                 <button type="button" tabindex="-1" class="remove-button" onclick="removeBlock(this)">削除</button>
-                <button type="button" tabindex="-1" onclick="moveLower(this)">↓</button>
+            </div>
+        </div>
+
+        <div class="edit-block" id="done_today">
+            <label>行ったこと</label>
+            <textarea class="edit-input" data-preview-id="preview-content-done_today">・</textarea>
+            <div class="edit-buttons">
                 <button type="button" tabindex="-1" onclick="moveUpper(this)">↑</button>
-                <br><span style="clear: both"></span>
-            </label>
-        </p>
-
-        <p class="edit-block" id="thoughts">
-            <label>
-                <b>今日のひとこと</b><br>
-
-                <textarea></textarea>
-                <br>
+                <button type="button" tabindex="-1" onclick="moveLower(this)">↓</button>
                 <button type="button" tabindex="-1" class="remove-button" onclick="removeBlock(this)">削除</button>
-                <button type="button" tabindex="-1" onclick="moveLower(this)">↓</button>
+            </div>
+        </div>
+
+        <div class="edit-block" id="log">
+            <label>作業ログ</label>
+            <textarea class="edit-input" data-preview-id="preview-content-log"></textarea>
+            <div class="edit-buttons">
                 <button type="button" tabindex="-1" onclick="moveUpper(this)">↑</button>
-                <br><span style="clear: both"></span>
-            </label>
-        </p>
+                <button type="button" tabindex="-1" onclick="moveLower(this)">↓</button>
+                <button type="button" tabindex="-1" class="remove-button" onclick="removeBlock(this)">削除</button>
+            </div>
+        </div>
+
+        <div class="edit-block" id="thoughts">
+            <label>今日のひとこと</label>
+            <textarea class="edit-input" data-preview-id="preview-content-thoughts"></textarea>
+            <div class="edit-buttons">
+                <button type="button" tabindex="-1" onclick="moveUpper(this)">↑</button>
+                <button type="button" tabindex="-1" onclick="moveLower(this)">↓</button>
+                <button type="button" tabindex="-1" class="remove-button" onclick="removeBlock(this)">削除</button>
+            </div>
+        </div>
 
 
         <!-- ブロック新規作成用のテンプレート -->
 
-        <p class="edit-block" style="display: none">
-            <label>
-                <b>コピー用</b><br>
-                <textarea></textarea><br>
-                <button tabindex="-1" type="button" class="remove-button" onclick="removeBlock(this)">削除</button>
-                <button tabindex="-1" type="button" onclick="moveLower(this)">↓</button>
-                <button tabindex="-1" type="button" onclick="moveUpper(this)">↑</button>
-                <br><span style="clear: both"></span>
-            </label>
-        </p>
+        <div class="edit-block" style="display: none">
+            <label>コピー用</label>
+            <textarea class="edit-input"></textarea>
+            <div class="edit-buttons">
+                <button type="button" tabindex="-1" onclick="moveUpper(this)">↑</button>
+                <button type="button" tabindex="-1" onclick="moveLower(this)">↓</button>
+                <button type="button" tabindex="-1" class="remove-button" onclick="removeBlock(this)">削除</button>
+            </div>
+        </div>
 
         <!-- ブロック追加 -->
 
-        <p class="add-block">
-            <label>
-                <b>タイトル</b>
-                <input tabindex="-1" type="text" class="add-input" id="add-input">
-            </label>
+        <div class="add-block">
+            <label>タイトル</label>
+            <input tabindex="-1" type="text" class="add-input" id="add-input">
             <button tabindex="-1" type="button" class="add-button" onclick="addBlock(this)">追加</button>
-        </p>
+        </div>
     </div>
 
     <!-- 右側 -->
 
     <div class="canvas-right">
-        <h2 class="preview-preview">プレビュー</h2>
-        <button type="button" onclick="copyToClipboard()">コピー</button>
+        <div class="preview-title">
+            <h2 class="preview-preview">プレビュー</h2>
+            <button class="preview-copy" type="button" onclick="copyToClipboard()">コピー</button>
+        </div>
 
         <div class="preview">
-            <div class="preview-avatar">
-                <img src="static/avatar.png" alt="sample">
-            </div>
+            <img class="preview-avatar" src="static/avatar.png" alt="sample">
 
             <div class="preview-text">
-                <p class="preview-header">
+                <div class="preview-header">
                     <span class="preview-header-name">あなた</span>
                     <span class="preview-header-time" id="preview-header-time">今日 16:03</span>
-                </p>
+                </div>
 
-                <p class="preview-content" id="preview">
+                <div class="preview-content" id="preview">
                     <span id="preview-content-top">退勤します。</span>
 
                     <span id="preview-header-work_time">＜勤務時間＞</span>
@@ -132,7 +117,7 @@
                     <span id="preview-header-thoughts">＜今日のひとこと＞</span>
                     <span id="preview-content-thoughts"></span>
 
-                </p>
+                </div>
             </div>
         </div>
     </div>
@@ -140,7 +125,7 @@
 
 <script type="text/javascript" src="static/setHyperlink.js"></script>
 <script type="text/javascript" src="static/copyToClipboard.js"></script>
-<script type="text/javascript" src="static/taikin.js"></script>
+<script type="text/javascript" src="static/general.js"></script>
 
 </body>
 </html>
